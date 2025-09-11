@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Quiz App</title>
+  <link rel="stylesheet" href="quiz.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h1>Smart Quiz</h1>
+    <div class="nav-actions">
+      <button id="themeToggle">🌙</button>
+      <button id="historyBtn">📜 History</button>
+    </div>
+  </nav>
+
+  <!-- Category Screen -->
+  <section id="screen-categories" class="screen">
+    <h2>Pick a Category</h2>
+    <div id="categories" class="card-grid"></div>
+  </section>
+
+  <!-- Subject Screen -->
+  <section id="screen-subjects" class="screen hidden">
+    <h2 id="subjectsTitle">Choose a Subject</h2>
+    <div id="subjects" class="card-grid"></div>
+    <button class="back-btn" onclick="document.getElementById('screen-subjects').classList.add('hidden');document.getElementById('screen-categories').classList.remove('hidden');">⬅ Back <style> .back-btn { background: var(--accent); color: #fff; border: none; border-radius: 12px; padding: 0.6rem 1.2rem; cursor: pointer; box-shadow: var(--shadow); transition: background 0.2s, transform 0.2s; } .back-btn:hover { background: var(--accent-dark); transform: translateY(-2px); } </style></button>
+  </section>
+
+  <!-- Level Screen -->
+  <section id="screen-levels" class="screen hidden">
+    <h2>Select Difficulty</h2>
+    <div class="card-grid">
+      <div class="level-card" data-level="easy">Easy</div>
+      <div class="level-card" data-level="moderate">Moderate</div>
+      <div class="level-card" data-level="difficult">Difficult</div>
+    </div>
+    <button class="back-btn" onclick="document.getElementById('screen-levels').classList.add('hidden');document.getElementById('screen-subjects').classList.remove('hidden');">⬅ Back</button>
+  </section>
+
+  <!-- Quiz Screen -->
+  <section id="screen-quiz" class="screen hidden">
+    <div class="quiz-header">
+      <span id="quizSubjectLabel">SUBJECT</span>
+      <span id="quizLevelLabel">Level: Easy</span>
+      <span id="progressLabel">Q1/5</span>
+      <span id="timerVal">30s</span>
+    </div>
+    <div id="time-bar"><div id="timeFill"></div></div>
+    <div id="questionBox">
+      <p id="questionText"></p>
+      <div id="optionsWrap" class="options"></div>
+    </div>
+    <div class="quiz-actions">
+      <button id="nextBtn" disabled>Next</button>
+      <button id="quitBtn">Quit</button>
+    </div>
+  </section>
+
+  <!-- Result Screen -->
+  <section id="screen-result" class="screen hidden">
+    <h2 class="result-title">Quiz Finished 🎉</h2>
+    <p id="resultSummary"></p>
+    <div class="result-actions">
+      <button id="retryBtn">Retry</button>
+      <button id="backHomeBtn">Back to Categories</button>
+    </div>
+  </section>
+
+  <!-- History Panel -->
+  <aside id="historyPanel">
+    <h2>History</h2>
+    <ul id="historyList"></ul>
+    <div class="history-actions">
+      <button id="clearHistory">🗑 Clear History</button>
+      <button id="closeHistory">Close</button>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Smart Quiz | Built with ❤️</p>
+  </footer>
+
+  <!-- Sounds -->
+  <audio id="sound-correct" src="sounds/correct.mp3"></audio>
+  <audio id="sound-wrong" src="sounds/wrong.mp3"></audio>
+  <audio id="sound-timesup" src="sounds/timesup.mp3"></audio>
+
+  <!-- Floating shapes -->
+  <div class="floating-shape" style="left:10%; animation-delay:0s;"></div>
+  <div class="floating-shape square" style="left:30%; animation-delay:5s; animation-duration:30s;"></div>
+  <div class="floating-shape" style="left:50%; animation-delay:10s;"></div>
+  <div class="floating-shape square" style="left:70%; animation-delay:15s; animation-duration:35s;"></div>
+  <div class="floating-shape" style="left:85%; animation-delay:20s;"></div>
+
+
+  <script src="quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartQuiz - Learn Smarter</title>
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <nav>
+    <h1>SmartQuiz</h1>
+    <button id="themeToggle">🌙</button>
+  </nav>
+
+  <header class="hero">
+    <h2>Master Knowledge the Smart Way</h2>
+    <p>
+      A gamified quiz app to test your skills across multiple subjects and levels.
+    </p>
+    <a href="quiz.html" class="cta-btn">🚀 Start Quiz</a>
+  </header>
+
+  <section class="features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>📚 Multiple Subjects</h3>
+        <p>Computer Science, Math, Science, Social Science, English — all in one app.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎯 Levels of Difficulty</h3>
+        <p>Easy, Moderate, and Difficult levels to challenge your growth.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⏳ Timer & Points</h3>
+        <p>Race against the clock and earn bonus points for quick answers.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📜 History Tracking</h3>
+        <p>Review your past attempts, track progress, and aim for mastery.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🌙 Dark Mode</h3>
+        <p>Switch between light and dark themes for the perfect experience.</p>
+      </div>
+      <div class="feature-card">
+        <h3>✨ Clean UI</h3>
+        <p>Modern, responsive design with smooth animations for an app-like feel.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>SmartQuiz © 2025 | Made with ❤️ by Our Team</p>
+  </footer>
+
+  <script>
+    // simple theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", () => {
+      const isDark = document.body.getAttribute("data-theme") === "dark";
+      if(isDark) { document.body.removeAttribute("data-theme"); themeToggle.textContent = "🌙"; }
+      else { document.body.setAttribute("data-theme", "dark"); themeToggle.textContent = "☀️"; }
+    });
+  </script>
+</body>
+</html>
