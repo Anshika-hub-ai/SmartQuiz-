@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  /* ---------- DATA: categories + subjects + question placeholders ---------- */
+  /* ---------- DATA: categories + subjects + question ---------- */
   const CATEGORIES = [
     { id: "cs", name: "Computer Science", subjects: [
       { id: "ai", name: "Artificial Intelligence" },
@@ -43,46 +43,46 @@ document.addEventListener("DOMContentLoaded", () => {
     ai: {
       easy: [
         { q: "What does AI stand for?", options: ["Artificial Intelligence","Automated Input","Algorithmic Interaction", "Artificial Interaction"], a: "Artificial Intelligence" },
-        { q: "Which language is most popular for AI?", options: ["Python","C","HTML","Java"], a: "Python" },
-        { q: "Example of AI in daily life?", options: ["Smart Assistants","Television","Bicycles","Speakers"], a: "Smart Assistants" },
-        { q: "AI has which branch?", options: ["Machine Learning","Carpentry","Painting","Writing"], a: "Machine Learning" },
+        { q: "Which language is most popular for AI?", options: ["C","HTML","Python","Java"], a: "Python" },
+        { q: "Example of AI in daily life?", options: ["Television","Bicycles","Speakers","Smart Assistants"], a: "Smart Assistants" },
+        { q: "AI has which branch?", options: ["Carpentry","Machine Learning","Painting","Writing"], a: "Machine Learning" },
         { q: "AI models learn from ___?", options: ["Data","Rocks","Weather","Teachers"], a: "Data" }
       ],
       moderate: [
-        { q: "What is supervised learning?", options: ["Learning with labeled data","Learning without labels","Learning by trial","Learning from mistakes"], a: "Learning with labeled data" },
+        { q: "What is supervised learning?", options: ["Learning without labels","Learning with labeled data","Learning by trial","Learning from mistakes"], a: "Learning with labeled data" },
         { q: "Which is a common ML algorithm?", options: ["Linear Regression","Bubble Sort","DFS","Dijkstra"], a: "Linear Regression" },
-        { q: "What is a neural network?", options: ["Model inspired by brain","Network of computers","Internet protocol","Database system"], a: "Model inspired by brain" },
-        { q: "What is reinforcement learning?", options: ["Learning via rewards","Learning from books","Learning by watching","Learning with friends"], a: "Learning via rewards" },
-        { q: "Which is a popular AI framework?", options: ["TensorFlow","React","Django","Laravel"], a: "TensorFlow" }
+        { q: "What is a neural network?", options: ["Network of computers","Internet protocol","Database system","Model inspired by brain"], a: "Model inspired by brain" },
+        { q: "What is reinforcement learning?", options: ["Learning from books","Learning by watching","Learning via rewards","Learning with friends"], a: "Learning via rewards" },
+        { q: "Which is a popular AI framework?", options: ["React","Django","Laravel","TensorFlow"], a: "TensorFlow" }
       ],
       difficult: [
         { q: "What is overfitting in ML?", options: ["Model fits training data too well","Model is too simple","Model runs slowly","Model ignores data"], a: "Model fits training data too well" },
-        { q: "Which is a supervised learning algorithm?", options: ["Decision Trees","K-Means","PCA","Apriori"], a: "Decision Trees" },
+        { q: "Which is a supervised learning algorithm?", options: ["K-Means","PCA","Decision Trees","Apriori"], a: "Decision Trees" },
         { q: "What does NLP stand for?", options: ["Natural Language Processing","Neural Learning Protocol","Networked Logic Programming","None of these"], a: "Natural Language Processing" },
-        { q: "Which is a loss function?", options: ["Mean Squared Error","Accuracy","Precision","Recall"], a: "Mean Squared Error" },
-        { q: "What is a confusion matrix?", options: ["Table to evaluate classification","Matrix of weights","Neural network layer","Data preprocessing step"], a: "Table to evaluate classification" }
+        { q: "Which is a loss function?", options: ["Accuracy","Precision","Mean Squared Error","Recall"], a: "Mean Squared Error" },
+        { q: "What is a confusion matrix?", options: ["Matrix of weights","Neural network layer","Table to evaluate classification","Data preprocessing step"], a: "Table to evaluate classification" }
       ],
     },
 
     python: {
       easy: [
-        { q: "Which symbol starts a comment in Python?", options: ["#","//","/*"], a: "#" },
-        { q: "How do you print in Python?", options: ["print()","echo()","cout"], a: "print()" },
-        { q: "List literal uses which brackets?", options: ["[]","{}","()"], a: "[]" },
+        { q: "Which symbol starts a comment in Python?", options: ["//","#","/*"], a: "#" },
+        { q: "How do you print in Python?", options: ["echo()","print()","cout"], a: "print()" },
+        { q: "List literal uses which brackets?", options: ["{}","()","[]"], a: "[]" },
         { q: "Which keyword defines a function?", options: ["def","func","function"], a: "def" },
-        { q: "Which operator is exponentiation?", options: ["**","^","exp()"], a: "**" }
+        { q: "Which operator is exponentiation?", options: ["^","**","exp()"], a: "**" }
       ],
       moderate: [
-        { q: "What is a lambda function?", options: ["Anonymous function","Named function","Class method"], a: "Anonymous function" },
+        { q: "What is a lambda function?", options: ["Named function","Class method","Anonymous function"], a: "Anonymous function" },
         { q: "Which module is for regular expressions?", options: ["re","regex","expr"], a: "re" },
-        { q: "How to handle exceptions?", options: ["try-except","catch","error"], a: "try-except" },
-        { q: "What does 'self' refer to?", options: ["Instance of class","Global variable","Function argument"], a: "Instance of class" },
+        { q: "How to handle exceptions?", options: ["catch","try-except","error"], a: "try-except" },
+        { q: "What does 'self' refer to?", options: ["Global variable","Instance of class","Function argument"], a: "Instance of class" },
         { q: "Which is a mutable type?", options: ["List","Tuple","String"], a: "List" }
       ],
       difficult: [
         { q: "What is a decorator?", options: ["Function that modifies another function","Type of variable","Built-in function"], a: "Function that modifies another function" },
-        { q: "What is the purpose of __init__?", options: ["Initialize class attributes","Create a new instance","Define a method"], a: "Initialize class attributes" },
-        { q: "What is a generator?", options: ["Function that returns an iterator","Type of variable","Built-in function"], a: "Function that returns an iterator" },
+        { q: "What is the purpose of __init__?", options: ["Create a new instance","Define a method","Initialize class attributes"], a: "Initialize class attributes" },
+        { q: "What is a generator?", options: ["Type of variable","Function that returns an iterator","Built-in function"], a: "Function that returns an iterator" },
         { q: "Which method is called when an object is deleted?", options: ["__del__","__init__","__str__"], a: "__del__" },
         { q: "What does GIL stand for?", options: ["Global Interpreter Lock","General Input Language","Graphical Interface Library"], a: "Global Interpreter Lock" }
       ],
@@ -90,11 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cpp: {
       easy: [
-        { q: "Which symbol ends a statement?", options: [";","}","."] , a: ";" },
+        { q: "Which symbol ends a statement?", options: ["}",".",";"] , a: ";" },
         { q: "Header for cout?", options: ["<iostream>","<stdio.h>","<string>"], a: "<iostream>" },
         { q: "int stands for?", options: ["Integer","Integration","Internal"], a: "Integer" },
-        { q: "Address-of operator?", options: ["&","*","%"], a: "&" },
-        { q: "Define constant with?", options: ["const","static","let"], a: "const" }
+        { q: "Address-of operator?", options: ["$","&","%"], a: "&" },
+        { q: "Define constant with?", options: ["const","let","static"], a: "const" }
       ],
       moderate: [
         { q: "What is a reference?", options: ["Alias for variable","Pointer","Function"], a: "Alias for variable" },
